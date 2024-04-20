@@ -50,5 +50,44 @@ function caesarCipher(string, shiftFactor) {
   return modifiedString;
 }
 
-caesarCipher('hello', 2);
-export { capitalize, reverse, calculate, caesarCipher };
+function analyzeArray(arr) {
+  function computeSum(arr) {
+    let sum = 0;
+    arr.forEach((element) => {
+      sum += element;
+    });
+    return sum / arr.length;
+  }
+
+  function computeMin(arr) {
+    let currentMin = arr[0];
+    arr.forEach((element) => {
+      if (currentMin > element) {
+        currentMin = element;
+      }
+    });
+    return currentMin;
+  }
+
+  function computeMax(arr) {
+    let currentMax = arr[0];
+    arr.forEach((element) => {
+      if (currentMax < element) {
+        currentMax = element;
+      }
+    });
+    return currentMax;
+  }
+
+  return {
+    average: computeSum(arr),
+    min: computeMin(arr),
+    max: computeMax(arr),
+    length: arr.length,
+  };
+}
+
+const object = analyzeArray([1, 8, 3, 4, 2, 6]);
+
+console.log(object);
+export { capitalize, reverse, calculate, caesarCipher, analyzeArray };

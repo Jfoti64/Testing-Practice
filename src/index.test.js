@@ -1,4 +1,4 @@
-import { capitalize, reverse, calculate, caesarCipher } from './index';
+import { capitalize, reverse, calculate, caesarCipher, analyzeArray } from './index';
 
 test('capitalize first letter of string', () => {
   expect(capitalize('hello')).toBe('Hello');
@@ -29,4 +29,21 @@ test('shift string char by shift factor', () => {
   expect(caesarCipher('HeLlO', 4)).toBe('LiPpS');
   expect(caesarCipher('zebra', 5)).toBe('ejgwf');
   expect(caesarCipher('Zebra', 5)).toBe('Ejgwf');
+});
+
+test('tests object properties', () => {
+  const object = analyzeArray([1, 8, 3, 4, 2, 6]);
+  expect(object).toEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6,
+  });
+  const object2 = analyzeArray([1]);
+  expect(object2).toEqual({
+    average: 1,
+    min: 1,
+    max: 1,
+    length: 1,
+  });
 });
